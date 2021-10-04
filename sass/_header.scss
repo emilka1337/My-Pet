@@ -1,0 +1,192 @@
+/*---------------------
+  Header
+-----------------------*/
+
+.header__logo {
+    padding: 15px 0;
+    display: flex;
+
+    span {
+        font-weight: 600;
+        font-size: 30px !important;
+        font-family: $fm-quicksand;
+        margin-left: 20px;
+    }
+}
+
+.header__menu {
+    padding: 24px 0;
+
+    ul {
+
+        li {
+            list-style: none;
+            display: inline-block;
+            margin-right: 50px;
+            position: relative;
+
+            .header__menu__dropdown {
+                position: absolute;
+                left: 0;
+                top: 50px;
+                background: #222222;
+                width: 180px;
+                z-index: 9;
+                padding: 5px 0;
+                @include transition(all, .3s);
+                opacity: 0;
+                visibility: hidden;
+
+                li {
+                    margin-right: 0;
+                    display: block;
+
+                    &:hover {
+
+                        &>a {
+                            color: $primary-color;
+                        }
+                    }
+
+                    a {
+                        text-transform: capitalize;
+                        color: $white-color;
+                        font-weight: 400;
+                        padding: 5px 15px;
+                    }
+                }
+            }
+
+            a {
+                text-decoration: none;
+                font-family: $fm-manrope;
+            }
+
+            &.active {
+
+                a {
+                    color: $primary-color;
+                }
+            }
+
+            &:hover {
+
+                .header__menu__dropdown {
+                    top: 30px;
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                &>a {
+                    color: $primary-color;
+                }
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            a {
+                font-size: 14px;
+                color: $heading-color-2;
+                text-transform: uppercase;
+                font-weight: 700;
+                letter-spacing: 2px;
+                @include transition(all, .3s);
+                padding: 5px 0;
+                display: block;
+            }
+        }
+    }
+}
+
+.header__cart {
+    text-align: right;
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+
+    ul {
+        // display: inline-block;
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+
+        li {
+            list-style: none;
+            display: inline-block;
+            margin-right: 15px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            a {
+                position: relative;
+
+                i {
+                    font-size: 18px;
+                    color: $normal-color;
+                }
+
+                span {
+                    height: 13px;
+                    width: 13px;
+                    background: #F4A52F;
+                    font-size: 10px;
+                    // color: $white-color;
+                    color: #000;
+                    line-height: 13px;
+                    text-align: center;
+                    font-weight: 700;
+                    display: inline-block;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 0;
+                    right: -12px;
+                }
+            }
+        }
+    }
+
+    button {
+        font-family: $fm-manrope;
+        font-weight: 700;
+        padding: 8px 20px;
+        border: 2px solid #000;
+        border-radius: 10px;
+
+        span {
+            font-size: 20px;
+        }
+    }
+
+    .header__cart__price {
+        font-size: 14px;
+        color: #6f6f6f;
+        display: inline-block;
+
+        span {
+            color: $heading-color-2;
+            font-weight: 700;
+        }
+    }
+}
+
+.humberger__menu__wrapper {
+    display: none;
+}
+
+.humberger__open {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .header__logo {
+        justify-content: center;
+    }
+
+    .header__cart {
+        flex-direction: row-reverse;
+    } 
+}
